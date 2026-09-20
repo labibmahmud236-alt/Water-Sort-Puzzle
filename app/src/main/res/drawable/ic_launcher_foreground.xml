@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:translateX="10.8"
+        android:translateY="10.8">
+        <!-- Test tube body -->
+        <path
+            android:fillColor="#3300E5FF"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="3"
+            android:pathData="M44,24 L44,74 A10,10 0 0,0 64,74 L64,24 Z" />
+        <!-- Tube rim -->
+        <path
+            android:fillColor="#66FFFFFF"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2"
+            android:pathData="M40,20 L68,20 A2,2 0 0,1 68,24 L40,24 A2,2 0 0,1 40,20 Z" />
+        <!-- Bottom liquid layer (Cyan) -->
+        <path
+            android:fillColor="#06B6D4"
+            android:pathData="M45,62 L45,74 A9,9 0 0,0 63,74 L63,62 Z" />
+        <!-- Middle liquid layer (Purple) -->
+        <path
+            android:fillColor="#8B5CF6"
+            android:pathData="M45,50 L63,50 L63,62 L45,62 Z" />
+        <!-- Top liquid layer (Pink) -->
+        <path
+            android:fillColor="#EC4899"
+            android:pathData="M45,38 L63,38 L63,50 L45,50 Z" />
+    </group>
+</vector>

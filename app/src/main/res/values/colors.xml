@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Theme Colors -->
+    <color name="primary">#00E5FF</color>
+    <color name="primary_variant">#00B4D8</color>
+    <color name="primary_dark">#0077B6</color>
+    <color name="secondary">#06D6A0</color>
+    <color name="secondary_variant">#2EC4B6</color>
+    <color name="accent_gold">#FFD166</color>
+    <color name="accent_pink">#F72585</color>
+    <color name="accent_lavender">#A084DC</color>
+
+    <!-- Background Gradients -->
+    <color name="bg_gradient_start">#0A192F</color>
+    <color name="bg_gradient_mid">#0D2847</color>
+    <color name="bg_gradient_end">#040D1A</color>
+    <color name="bg_aquatic_teal">#0F3B57</color>
+
+    <!-- Glassmorphism Surface Colors -->
+    <color name="glass_surface">#26FFFFFF</color>
+    <color name="glass_surface_light">#40FFFFFF</color>
+    <color name="glass_surface_dark">#1AFFFFFF</color>
+    <color name="glass_surface_card">#2019385C</color>
+    <color name="glass_surface_dialog">#EA0B1E36</color>
+    <color name="glass_border">#55FFFFFF</color>
+    <color name="glass_border_highlight">#AA00E5FF</color>
+    <color name="glass_border_subtle">#33FFFFFF</color>
+    <color name="glass_glow_cyan">#6600E5FF</color>
+    <color name="glass_glow_gold">#88FFD166</color>
+    <color name="glass_glow_red">#88FF3366</color>
+
+    <!-- Liquid Colors (Layer Rendering) -->
+    <!-- 0: Empty -->
+    <color name="liquid_empty">#00000000</color>
+
+    <!-- 1: RED -->
+    <color name="liquid_red">#FF2A55</color>
+    <color name="liquid_red_dark">#D90429</color>
+    <color name="liquid_red_light">#FF6B8B</color>
+
+    <!-- 2: ORANGE -->
+    <color name="liquid_orange">#FF8500</color>
+    <color name="liquid_orange_dark">#EA580C</color>
+    <color name="liquid_orange_light">#FFA726</color>
+
+    <!-- 3: YELLOW -->
+    <color name="liquid_yellow">#FFD000</color>
+    <color name="liquid_yellow_dark">#F59E0B</color>
+    <color name="liquid_yellow_light">#FFE066</color>
+
+    <!-- 4: GREEN -->
+    <color name="liquid_green">#10B981</color>
+    <color name="liquid_green_dark">#059669</color>
+    <color name="liquid_green_light">#34D399</color>
+
+    <!-- 5: CYAN / TURQUOISE -->
+    <color name="liquid_cyan">#06B6D4</color>
+    <color name="liquid_cyan_dark">#0891B2</color>
+    <color name="liquid_cyan_light">#67E8F9</color>
+
+    <!-- 6: BLUE -->
+    <color name="liquid_blue">#3B82F6</color>
+    <color name="liquid_blue_dark">#1D4ED8</color>
+    <color name="liquid_blue_light">#60A5FA</color>
+
+    <!-- 7: PURPLE -->
+    <color name="liquid_purple">#8B5CF6</color>
+    <color name="liquid_purple_dark">#6D28D9</color>
+    <color name="liquid_purple_light">#A78BFA</color>
+
+    <!-- 8: PINK -->
+    <color name="liquid_pink">#EC4899</color>
+    <color name="liquid_pink_dark">#BE185D</color>
+    <color name="liquid_pink_light">#F472B6</color>
+
+    <!-- 9: LIME -->
+    <color name="liquid_lime">#84CC16</color>
+    <color name="liquid_lime_dark">#4D7C0F</color>
+    <color name="liquid_lime_light">#A3E635</color>
+
+    <!-- 10: BROWN / CARAMEL -->
+    <color name="liquid_brown">#B45309</color>
+    <color name="liquid_brown_dark">#78350F</color>
+    <color name="liquid_brown_light">#D97706</color>
+
+    <!-- 11: GREY / SILVER -->
+    <color name="liquid_grey">#94A3B8</color>
+    <color name="liquid_grey_dark">#475569</color>
+    <color name="liquid_grey_light">#CBD5E1</color>
+
+    <!-- 12: INDIGO -->
+    <color name="liquid_indigo">#6366F1</color>
+    <color name="liquid_indigo_dark">#4338CA</color>
+    <color name="liquid_indigo_light">#818CF8</color>
+
+    <!-- Text and UI elements -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0C7DE</color>
+    <color name="text_muted">#708BA6</color>
+    <color name="text_gold">#FFE066</color>
+    <color name="text_accent">#00E5FF</color>
+
+    <!-- Tube & Glass Effects -->
+    <color name="tube_glass_body">#18FFFFFF</color>
+    <color name="tube_glass_border">#66FFFFFF</color>
+    <color name="tube_glass_highlight">#99FFFFFF</color>
+    <color name="tube_glass_shadow">#33000000</color>
+
+    <!-- Stars & Rewards -->
+    <color name="star_gold">#FFC72C</color>
+    <color name="star_inactive">#40688C</color>
+    <color name="coin_gold">#FBBF24</color>
+    <color name="coin_gold_dark">#D97706</color>
+    <color name="coin_gold_light">#FEF08A</color>
+
+    <!-- States -->
+    <color name="level_locked">#30475E</color>
+    <color name="level_locked_text">#627D98</color>
+    <color name="level_completed">#06D6A0</color>
+    <color name="level_current_border">#00E5FF</color>
+    <color name="level_current_glow">#6600E5FF</color>
+
+    <color name="dialog_scrim">#B3000511</color>
+    <color name="card_stroke_default">#30FFFFFF</color>
+</resources>

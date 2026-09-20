@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.aquasort.puzzle.views.ConfettiView
+        android:id="@+id/confetti_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_glass_dialog"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/level_complete_title"
+            android:textColor="@color/accent_gold"
+            android:textSize="26sp"
+            android:letterSpacing="0.06" />
+
+        <TextView
+            android:id="@+id/tv_reward_level_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="LEVEL 24"
+            android:textColor="@color/primary"
+            android:textSize="16sp" />
+
+        <!-- 3 Stars Row -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_star_1"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_star_empty"
+                android:contentDescription="@string/cd_star_icon" />
+
+            <ImageView
+                android:id="@+id/iv_star_2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:src="@drawable/ic_star_empty"
+                android:contentDescription="@string/cd_star_icon" />
+
+            <ImageView
+                android:id="@+id/iv_star_3"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_star_empty"
+                android:contentDescription="@string/cd_star_icon" />
+        </LinearLayout>
+
+        <!-- Coins Reward Card -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_coin_badge"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_coin"
+                android:contentDescription="@string/cd_coin_icon" />
+
+            <TextView
+                android:id="@+id/tv_coins_earned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:fontFamily="sans-serif-black"
+                android:text="+25 COINS"
+                android:textColor="@color/accent_gold"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Double Reward with Ad Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_reward_double"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_glass_card_accent"
+            android:fontFamily="sans-serif-bold"
+            android:text="@string/action_double_reward"
+            android:textColor="@color/primary"
+            android:textSize="14sp" />
+
+        <!-- Next Level Primary Button -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_reward_next"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height_primary"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_btn_primary"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/action_next_level"
+            android:textColor="@color/bg_gradient_start"
+            android:textSize="16sp" />
+
+        <!-- Bottom Action Row (Replay & Home) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_reward_replay"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_secondary"
+                android:fontFamily="sans-serif-bold"
+                android:text="@string/action_replay"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_reward_home"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn_secondary"
+                android:fontFamily="sans-serif-bold"
+                android:text="@string/action_home"
+                android:textColor="@color/text_primary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="340dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_glass_dialog"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="28dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/action_how_to_play"
+        android:textColor="@color/primary"
+        android:textSize="22sp"
+        android:letterSpacing="0.08" />
+
+    <!-- Animated Sample Tubes Demonstration -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="160dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.aquasort.puzzle.views.TubeView
+            android:id="@+id/tutorial_tube_1"
+            android:layout_width="48dp"
+            android:layout_height="140dp"
+            android:layout_marginEnd="16dp" />
+
+        <com.aquasort.puzzle.views.TubeView
+            android:id="@+id/tutorial_tube_2"
+            android:layout_width="48dp"
+            android:layout_height="140dp"
+            android:layout_marginStart="16dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_tutorial_step_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/tutorial_step1_title"
+        android:textColor="@color/accent_gold"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_tutorial_step_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:minLines="2"
+        android:text="@string/tutorial_step1_desc"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+    <!-- Step Dots Indicator -->
+    <LinearLayout
+        android:id="@+id/layout_step_dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/dot_1"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_btn_primary" />
+
+        <View
+            android:id="@+id/dot_2"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_btn_secondary" />
+
+        <View
+            android:id="@+id/dot_3"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_btn_secondary" />
+
+        <View
+            android:id="@+id/dot_4"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/bg_btn_secondary" />
+    </LinearLayout>
+
+    <!-- Navigation Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tutorial_skip"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height_primary"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_secondary"
+            android:fontFamily="sans-serif-bold"
+            android:text="@string/action_skip"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_tutorial_next"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/btn_height_primary"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_primary"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/action_next"
+            android:textColor="@color/bg_gradient_start"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

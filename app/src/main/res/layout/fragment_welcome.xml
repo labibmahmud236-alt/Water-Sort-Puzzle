@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main_gradient">
+
+    <!-- Floating Background Tubes (3 decorative glass tubes) -->
+    <LinearLayout
+        android:id="@+id/layout_welcome_tubes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.aquasort.puzzle.views.TubeView
+            android:id="@+id/welcome_tube_left"
+            android:layout_width="54dp"
+            android:layout_height="170dp"
+            android:layout_marginEnd="16dp"
+            android:rotation="-8" />
+
+        <com.aquasort.puzzle.views.TubeView
+            android:id="@+id/welcome_tube_center"
+            android:layout_width="64dp"
+            android:layout_height="200dp"
+            android:translationY="-12dp" />
+
+        <com.aquasort.puzzle.views.TubeView
+            android:id="@+id/welcome_tube_right"
+            android:layout_width="54dp"
+            android:layout_height="170dp"
+            android:layout_marginStart="16dp"
+            android:rotation="8" />
+    </LinearLayout>
+
+    <!-- Center Card with Welcome Information -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_glass_card"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="28dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:letterSpacing="0.1"
+            android:text="@string/app_name"
+            android:textColor="@color/primary"
+            android:textSize="32sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.15"
+            android:text="@string/app_tagline"
+            android:textColor="@color/secondary"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/welcome_title"
+            android:textColor="@color/accent_gold"
+            android:textSize="22sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="@string/welcome_subtitle"
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp" />
+
+        <!-- Main Button: START PLAYING -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_welcome_start"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height_primary"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_btn_primary"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/action_start_playing"
+            android:textColor="@color/bg_gradient_start"
+            android:textSize="16sp" />
+
+        <!-- Secondary Button: HOW TO PLAY -->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_welcome_how_to_play"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height_primary"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_btn_secondary"
+            android:fontFamily="sans-serif-bold"
+            android:text="@string/action_how_to_play"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</FrameLayout>

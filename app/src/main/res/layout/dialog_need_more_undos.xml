@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_glass_dialog"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="28dp">
+
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_undo"
+        android:contentDescription="@string/action_undo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/need_more_undos_title"
+        android:textColor="@color/primary"
+        android:textSize="22sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/need_more_undos_msg"
+        android:textColor="@color/text_secondary"
+        android:textSize="14sp" />
+
+    <!-- Use Coins Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_undos_coins"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_primary"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_btn_primary"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/need_more_undos_coins"
+        android:textColor="@color/bg_gradient_start"
+        android:textSize="15sp" />
+
+    <!-- Watch Ad Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_undos_ad"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_primary"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_btn_secondary"
+        android:fontFamily="sans-serif-bold"
+        android:text="@string/need_more_undos_ad"
+        android:textColor="@color/primary"
+        android:textSize="15sp" />
+
+    <!-- Cancel Button -->
+    <TextView
+        android:id="@+id/tv_undos_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:padding="8dp"
+        android:text="@string/action_cancel"
+        android:textColor="@color/text_muted"
+        android:textSize="14sp" />
+
+</LinearLayout>

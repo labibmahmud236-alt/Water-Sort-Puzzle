@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_glass_dialog"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="28dp">
+
+    <TextView
+        android:id="@+id/tv_pause_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/pause_title"
+        android:textColor="@color/primary"
+        android:textSize="26sp"
+        android:letterSpacing="0.08" />
+
+    <TextView
+        android:id="@+id/tv_pause_level"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="LEVEL 1"
+        android:textColor="@color/text_secondary"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="160dp"
+        android:layout_height="1.5dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="#3300E5FF" />
+
+    <!-- Resume Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_pause_resume"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_primary"
+        android:background="@drawable/bg_btn_primary"
+        android:fontFamily="sans-serif-black"
+        android:text="@string/pause_resume"
+        android:textColor="@color/bg_gradient_start"
+        android:textSize="16sp" />
+
+    <!-- Restart Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_pause_restart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_primary"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_btn_secondary"
+        android:fontFamily="sans-serif-bold"
+        android:text="@string/pause_restart"
+        android:textColor="@color/text_primary"
+        android:textSize="15sp" />
+
+    <!-- Levels Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_pause_levels"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_primary"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_btn_secondary"
+        android:fontFamily="sans-serif-bold"
+        android:text="@string/pause_levels"
+        android:textColor="@color/text_primary"
+        android:textSize="15sp" />
+
+    <!-- Home Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_pause_home"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_primary"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_btn_secondary"
+        android:fontFamily="sans-serif-bold"
+        android:text="@string/pause_home"
+        android:textColor="@color/text_primary"
+        android:textSize="15sp" />
+
+</LinearLayout>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Details -->
+    <string name="app_name">Aqua Sort</string>
+    <string name="app_tagline">COLOR • SORT • RELAX</string>
+    <string name="welcome_title">WELCOME!</string>
+    <string name="welcome_subtitle">Ready to relax your mind?</string>
+
+    <!-- AdMob (Test Ad IDs - Easily replaceable with production IDs) -->
+    <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="admob_banner_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="admob_interstitial_id">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="admob_rewarded_id">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="admob_app_open_id">ca-app-pub-3940256099942544/9257390721</string>
+
+    <!-- Navigation & Main Actions -->
+    <string name="action_start_playing">START PLAYING</string>
+    <string name="action_play">PLAY</string>
+    <string name="action_continue">CONTINUE</string>
+    <string name="action_how_to_play">HOW TO PLAY</string>
+    <string name="action_settings">SETTINGS</string>
+    <string name="action_daily_reward">DAILY REWARD</string>
+    <string name="action_shop">SHOP</string>
+    <string name="action_level_select">LEVELS</string>
+    <string name="action_rate_us">RATE US</string>
+    <string name="action_share">SHARE</string>
+    <string name="action_next">NEXT</string>
+    <string name="action_skip">SKIP</string>
+    <string name="action_cancel">CANCEL</string>
+    <string name="action_ok">OK</string>
+    <string name="action_claim">CLAIM</string>
+    <string name="action_claimed">CLAIMED</string>
+    <string name="action_watch_ad">WATCH AD</string>
+    <string name="action_use_coins">USE COINS</string>
+    <string name="action_buy">BUY</string>
+    <string name="action_privacy">Privacy Policy</string>
+    <string name="action_terms">Terms &amp; Conditions</string>
+
+    <!-- Gameplay Strings -->
+    <string name="level_title_format">LEVEL %1$d</string>
+    <string name="moves_format">Moves: %1$d</string>
+    <string name="action_undo">UNDO</string>
+    <string name="action_hint">HINT</string>
+    <string name="action_restart">RESTART</string>
+    <string name="undo_count_format">%1$d</string>
+
+    <!-- Dialogs -->
+    <!-- Pause Dialog -->
+    <string name="pause_title">PAUSED</string>
+    <string name="pause_resume">RESUME</string>
+    <string name="pause_restart">RESTART</string>
+    <string name="pause_levels">LEVEL SELECT</string>
+    <string name="pause_home">HOME</string>
+
+    <!-- Restart Dialog -->
+    <string name="restart_title">Restart Level?</string>
+    <string name="restart_message">Current progress on this level will be reset.</string>
+
+    <!-- Win / Level Complete Dialog -->
+    <string name="level_complete_title">LEVEL COMPLETE!</string>
+    <string name="level_complete_coins">+%1$d COINS</string>
+    <string name="action_next_level">NEXT LEVEL</string>
+    <string name="action_replay">REPLAY</string>
+    <string name="action_home">HOME</string>
+    <string name="action_double_reward">2X WITH AD</string>
+
+    <!-- Need More Undos Dialog -->
+    <string name="need_more_undos_title">NEED MORE UNDOS?</string>
+    <string name="need_more_undos_msg">You have used all free undos for this level. Watch a quick ad or spend coins to get +3 Undos!</string>
+    <string name="need_more_undos_coins">50 COINS (+3)</string>
+    <string name="need_more_undos_ad">WATCH AD (+3)</string>
+
+    <!-- Hint Dialog -->
+    <string name="need_hint_title">NEED A HINT?</string>
+    <string name="need_hint_msg">Stuck? Get a move hint to guide your next pour!</string>
+    <string name="need_hint_coins">30 COINS</string>
+    <string name="need_hint_ad">WATCH AD</string>
+    <string name="no_moves_available">No valid moves remaining! Try using Undo or Restart.</string>
+
+    <!-- Level Selection -->
+    <string name="level_select_title">SELECT LEVEL</string>
+    <string name="level_progress_format">%1$d / 100 COMPLETED</string>
+
+    <!-- Daily Reward -->
+    <string name="daily_reward_title">DAILY REWARD</string>
+    <string name="daily_reward_subtitle">Come back each day for bigger coin rewards!</string>
+    <string name="day_format">Day %1$d</string>
+    <string name="already_claimed_today">Already claimed today! Come back tomorrow.</string>
+
+    <!-- Shop -->
+    <string name="shop_title">COIN SHOP</string>
+    <string name="shop_subtitle">Get coins to unlock hints and extra undos!</string>
+    <string name="shop_ad_title">FREE COINS</string>
+    <string name="shop_ad_desc">Watch a short video</string>
+    <string name="shop_ad_reward">+100 Coins</string>
+    <string name="shop_pack_1_title">Handful of Coins</string>
+    <string name="shop_pack_1_coins">500 Coins</string>
+    <string name="shop_pack_1_price">$0.99</string>
+    <string name="shop_pack_2_title">Bag of Coins</string>
+    <string name="shop_pack_2_coins">1,000 Coins</string>
+    <string name="shop_pack_2_price">$1.99</string>
+    <string name="shop_pack_3_title">Chest of Coins</string>
+    <string name="shop_pack_3_coins">2,500 Coins</string>
+    <string name="shop_pack_3_price">$3.99</string>
+    <string name="shop_pack_4_title">Vault of Coins</string>
+    <string name="shop_pack_4_coins">5,000 Coins</string>
+    <string name="shop_pack_4_price">$6.99</string>
+    <string name="shop_booster_undo">3x Extra Undos</string>
+    <string name="shop_booster_undo_price">50 Coins</string>
+    <string name="shop_booster_hint">1x Smart Hint</string>
+    <string name="shop_booster_hint_price">30 Coins</string>
+    <string name="not_enough_coins">Not enough coins!</string>
+    <string name="purchase_successful">Purchase successful!</string>
+
+    <!-- Settings -->
+    <string name="settings_title">SETTINGS</string>
+    <string name="settings_sound">Sound Effects</string>
+    <string name="settings_music">Background Music</string>
+    <string name="settings_vibration">Vibration</string>
+    <string name="settings_notifications">Notifications</string>
+    <string name="settings_about">About Aqua Sort</string>
+    <string name="settings_version_format">Version %1$s</string>
+
+    <!-- Rate Us -->
+    <string name="rate_us_title">ENJOYING AQUA SORT?</string>
+    <string name="rate_us_msg">Your positive review keeps us creating new levels and features!</string>
+    <string name="action_rate_now">RATE NOW ★★★★★</string>
+    <string name="action_later">MAYBE LATER</string>
+
+    <!-- Share -->
+    <string name="share_text">Come play Aqua Sort with me! Can you solve all 100 color sort puzzles? Download Aqua Sort now: https://play.google.com/store/apps/details?id=com.aquasort.puzzle</string>
+    <string name="share_chooser_title">Share Aqua Sort</string>
+
+    <!-- Coming Soon -->
+    <string name="coming_soon_title">CONGRATULATIONS!</string>
+    <string name="coming_soon_headline">MORE LEVELS COMING SOON</string>
+    <string name="coming_soon_desc">You\'ve mastered all 100 levels! New liquid puzzles and game modes are on the way. Stay tuned!</string>
+    <string name="action_back_to_levels">BACK TO LEVELS</string>
+
+    <!-- Tutorial / How to Play -->
+    <string name="tutorial_step1_title">1. TAP TO SELECT</string>
+    <string name="tutorial_step1_desc">Tap any test tube to pick up the top liquid color.</string>
+    <string name="tutorial_step2_title">2. TAP TO POUR</string>
+    <string name="tutorial_step2_desc">Tap another tube to pour liquid into it.</string>
+    <string name="tutorial_step3_title">3. MATCH COLORS</string>
+    <string name="tutorial_step3_desc">You can only pour liquid onto the same color or into an empty tube!</string>
+    <string name="tutorial_step4_title">4. SORT EVERY COLOR</string>
+    <string name="tutorial_step4_desc">Group all matching colors together until every tube is filled with one color!</string>
+
+    <!-- Content Descriptions for Accessibility -->
+    <string name="cd_pause_button">Pause Game</string>
+    <string name="cd_undo_button">Undo Last Move</string>
+    <string name="cd_hint_button">Get Hint</string>
+    <string name="cd_restart_button">Restart Level</string>
+    <string name="cd_settings_button">Open Settings</string>
+    <string name="cd_shop_button">Open Shop</string>
+    <string name="cd_daily_reward_button">Open Daily Reward</string>
+    <string name="cd_level_select_button">Open Level Select</string>
+    <string name="cd_coin_icon">Coins</string>
+    <string name="cd_star_icon">Star Rating</string>
+    <string name="cd_tube_view">Water Sort Test Tube</string>
+</resources>

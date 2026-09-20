@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="6dp">
+
+    <LinearLayout
+        android:id="@+id/layout_level_card"
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:background="@drawable/bg_glass_card"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tv_level_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-black"
+            android:text="1"
+            android:textColor="@color/text_primary"
+            android:textSize="18sp" />
+
+        <!-- Status Container (Stars or Lock or Check) -->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp">
+
+            <!-- Stars Row -->
+            <LinearLayout
+                android:id="@+id/layout_level_stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_level_star1"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_star_filled"
+                    android:contentDescription="@string/cd_star_icon" />
+
+                <ImageView
+                    android:id="@+id/iv_level_star2"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:src="@drawable/ic_star_filled"
+                    android:contentDescription="@string/cd_star_icon" />
+
+                <ImageView
+                    android:id="@+id/iv_level_star3"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/ic_star_filled"
+                    android:contentDescription="@string/cd_star_icon" />
+            </LinearLayout>
+
+            <!-- Lock Icon -->
+            <ImageView
+                android:id="@+id/iv_level_lock"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_lock"
+                android:visibility="gone"
+                android:contentDescription="@string/cd_level_select_button" />
+
+            <!-- Current Play Icon -->
+            <ImageView
+                android:id="@+id/iv_level_play"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_play"
+                android:visibility="gone"
+                android:contentDescription="@string/cd_level_select_button" />
+        </FrameLayout>
+
+    </LinearLayout>
+</FrameLayout>
