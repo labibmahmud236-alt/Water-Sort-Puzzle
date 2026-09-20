@@ -8,3 +8,5 @@
 /captures
 .externalNativeBuild
 .cxx
+*.apk
+create_release.py
