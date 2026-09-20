@@ -46,4 +46,9 @@ public final class Constants {
     public static final int REWARD_COINS_AMOUNT = 100;
     public static final int REWARD_UNDOS_AMOUNT = 3;
     public static final int REWARD_HINTS_AMOUNT = 1;
+
+    // Container Skin Keys
+    public static final String KEY_UNLOCKED_SKINS = "unlocked_skins_v1";
+    public static final String KEY_EQUIPPED_SKIN = "equipped_skin_v1";
+    public static final String DEFAULT_SKIN_ID = "classic_tube";
 }

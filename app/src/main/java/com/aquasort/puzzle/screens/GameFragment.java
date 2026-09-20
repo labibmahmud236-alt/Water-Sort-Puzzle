@@ -29,13 +29,16 @@ import com.aquasort.puzzle.game.GameEngine;
 import com.aquasort.puzzle.game.GameState;
 import com.aquasort.puzzle.game.Move;
 import com.aquasort.puzzle.game.Tube;
+import com.aquasort.puzzle.models.ContainerSkin;
 import com.aquasort.puzzle.models.LevelProgress;
 import com.aquasort.puzzle.models.PlayerData;
 import com.aquasort.puzzle.services.AdManager;
+import com.aquasort.puzzle.services.ContainerSkinManager;
 import com.aquasort.puzzle.services.SoundManager;
 import com.aquasort.puzzle.services.StorageManager;
 import com.aquasort.puzzle.services.VibrationManager;
 import com.aquasort.puzzle.utils.Constants;
+import com.aquasort.puzzle.views.PourAnimationController;
 import com.aquasort.puzzle.views.PourOverlayView;
 import com.aquasort.puzzle.views.TubeView;
 
@@ -52,6 +55,7 @@ public class GameFragment extends Fragment implements GameEngine.GameListener {
     private SoundManager sound;
     private VibrationManager vibration;
     private AdManager adManager;
+    private PourAnimationController pourController;
 
     private TextView tvLevelTitle;
     private TextView tvMovesCount;
@@ -79,6 +83,7 @@ public class GameFragment extends Fragment implements GameEngine.GameListener {
         sound = SoundManager.getInstance(requireContext());
         vibration = VibrationManager.getInstance(requireContext());
         adManager = AdManager.getInstance(requireContext());
+        pourController = new PourAnimationController();
         gameEngine = new GameEngine();
         gameEngine.setGameListener(this);
     }
@@ -168,6 +173,8 @@ public class GameFragment extends Fragment implements GameEngine.GameListener {
         int marginH = (int) (count <= 6 ? 10 * density : 6 * density);
         int marginV = (int) (rows == 1 ? 0 : 16 * density);
 
+        ContainerSkin equippedSkin = ContainerSkinManager.getInstance(requireContext()).getEquippedSkin();
+
         int tubeIndex = 0;
         for (int r = 0; r < rows; r++) {
             LinearLayout rowLayout = new LinearLayout(requireContext());
@@ -193,6 +200,7 @@ public class GameFragment extends Fragment implements GameEngine.GameListener {
                 tvParams.rightMargin = marginH;
                 tv.setLayoutParams(tvParams);
 
+                tv.setSkin(equippedSkin);
                 tv.setTubeData(tubeData);
                 tv.setOnClickListener(v -> gameEngine.onTubeClicked(currentIdx));
 
@@ -246,80 +254,7 @@ public class GameFragment extends Fragment implements GameEngine.GameListener {
         sound.playPour();
         vibration.vibratePour();
 
-        // Calculate positions
-        int[] srcPos = new int[2];
-        int[] dstPos = new int[2];
-        srcView.getLocationOnScreen(srcPos);
-        dstView.getLocationOnScreen(dstPos);
-
-        float deltaX = dstPos[0] - srcPos[0];
-        boolean isRight = deltaX >= 0;
-        float tiltAngle = isRight ? 45f : -45f;
-        float liftY = -srcView.getHeight() * 0.25f;
-
-        // Animate source tube translation towards target
-        float approachX = isRight ? (deltaX - srcView.getWidth() * 0.8f) : (deltaX + dstView.getWidth() * 0.8f);
-
-        ObjectAnimator animX = ObjectAnimator.ofFloat(srcView, "translationX", 0f, approachX);
-        ObjectAnimator animY = ObjectAnimator.ofFloat(srcView, "translationY", srcView.getTranslationY(), liftY);
-        ObjectAnimator animRot = ObjectAnimator.ofFloat(srcView, "rotation", 0f, tiltAngle);
-
-        AnimatorSet pourSet = new AnimatorSet();
-        pourSet.playTogether(animX, animY, animRot);
-        pourSet.setDuration(280);
-        pourSet.setInterpolator(new AccelerateDecelerateInterpolator());
-
-        pourSet.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                // Draw pouring stream
-                int[] overlayPos = new int[2];
-                pourOverlay.getLocationOnScreen(overlayPos);
-
-                int[] sPos = new int[2];
-                int[] dPos = new int[2];
-                srcView.getLocationOnScreen(sPos);
-                dstView.getLocationOnScreen(dPos);
-
-                float startX = (isRight ? sPos[0] + srcView.getWidth() * 0.8f : sPos[0] + srcView.getWidth() * 0.2f) - overlayPos[0];
-                float startY = sPos[1] + srcView.getHeight() * 0.15f - overlayPos[1];
-                float endX = dPos[0] + dstView.getWidth() * 0.5f - overlayPos[0];
-                float endY = dPos[1] + dstView.getHeight() * 0.1f - overlayPos[1];
-
-                pourOverlay.startStream(startX, startY, endX, endY, move.getColor());
-
-                // Smooth layer change
-                long flowDuration = 350;
-                int srcLayerIdx = gameEngine.getGameState().getTube(move.getFromIndex()).size();
-                int dstLayerIdx = gameEngine.getGameState().getTube(move.getToIndex()).size() - 1;
-
-                srcView.animateDrainTop(srcLayerIdx, flowDuration, null);
-                dstView.animateFillTarget(dstLayerIdx, flowDuration, () -> {
-                    pourOverlay.stopStream();
-
-                    // Return source tube to place
-                    ObjectAnimator retX = ObjectAnimator.ofFloat(srcView, "translationX", 0f);
-                    ObjectAnimator retY = ObjectAnimator.ofFloat(srcView, "translationY", 0f);
-                    ObjectAnimator retRot = ObjectAnimator.ofFloat(srcView, "rotation", 0f);
-
-                    AnimatorSet returnSet = new AnimatorSet();
-                    returnSet.playTogether(retX, retY, retRot);
-                    returnSet.setDuration(240);
-                    returnSet.addListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            srcView.setTubeData(gameEngine.getGameState().getTube(move.getFromIndex()));
-                            dstView.setTubeData(gameEngine.getGameState().getTube(move.getToIndex()));
-                            srcView.setSelectedState(false);
-                            dstView.setSelectedState(false);
-                            onAnimationComplete.run();
-                        }
-                    });
-                    returnSet.start();
-                });
-            }
-        });
-        pourSet.start();
+        pourController.executePour(srcView, dstView, pourOverlay, move, gameEngine.getGameState(), onAnimationComplete);
     }
 
     @Override
@@ -585,6 +520,18 @@ public class GameFragment extends Fragment implements GameEngine.GameListener {
             public void onCancelRestart() {}
         });
         dialog.show();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isAdded() && getContext() != null) {
+            ContainerSkin equipped = ContainerSkinManager.getInstance(requireContext()).getEquippedSkin();
+            for (TubeView tv : tubeViews) {
+                tv.setSkin(equipped);
+            }
+            updateTopBar();
+        }
     }
 
     @Override

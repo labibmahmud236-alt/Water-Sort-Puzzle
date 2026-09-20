@@ -1,5 +1,6 @@
 package com.aquasort.puzzle.screens;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,20 +11,36 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.aquasort.puzzle.R;
+import com.aquasort.puzzle.adapters.ContainerSkinAdapter;
+import com.aquasort.puzzle.dialogs.SkinPreviewDialog;
+import com.aquasort.puzzle.models.ContainerSkin;
 import com.aquasort.puzzle.models.PlayerData;
 import com.aquasort.puzzle.services.AdManager;
+import com.aquasort.puzzle.services.ContainerSkinManager;
 import com.aquasort.puzzle.services.SoundManager;
 import com.aquasort.puzzle.services.StorageManager;
 
-public class ShopFragment extends Fragment {
+import java.util.List;
+
+public class ShopFragment extends Fragment implements ContainerSkinAdapter.SkinActionListener {
 
     private StorageManager storage;
+    private ContainerSkinManager skinManager;
     private PlayerData playerData;
+
     private TextView tvCoinCount;
     private TextView tvUserUndos;
     private TextView tvUserHints;
+
+    private RecyclerView rvContainerSkins;
+    private ContainerSkinAdapter skinAdapter;
+    private String selectedCategory = ContainerSkin.CAT_ALL;
+
+    private TextView tabAll, tabGlass, tabBottles, tabCups, tabMugs, tabFantasy, tabPremium;
 
     public static ShopFragment newInstance() {
         return new ShopFragment();
@@ -40,6 +57,7 @@ public class ShopFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         storage = StorageManager.getInstance(requireContext());
+        skinManager = ContainerSkinManager.getInstance(requireContext());
         playerData = storage.loadPlayerData();
 
         view.findViewById(R.id.btn_shop_back).setOnClickListener(v -> {
@@ -50,6 +68,15 @@ public class ShopFragment extends Fragment {
         tvCoinCount = view.findViewById(R.id.tv_shop_coin_count);
         tvUserUndos = view.findViewById(R.id.tv_shop_user_undos);
         tvUserHints = view.findViewById(R.id.tv_shop_user_hints);
+
+        // Container Skins Grid
+        rvContainerSkins = view.findViewById(R.id.rv_container_skins);
+        rvContainerSkins.setLayoutManager(new GridLayoutManager(requireContext(), 2));
+        skinAdapter = new ContainerSkinAdapter(requireContext(), skinManager.getAllSkins(), this);
+        rvContainerSkins.setAdapter(skinAdapter);
+
+        // Category Tabs
+        setupCategoryTabs(view);
 
         // Free Ad Coins
         view.findViewById(R.id.btn_shop_watch_ad).setOnClickListener(v -> {
@@ -110,6 +137,86 @@ public class ShopFragment extends Fragment {
         updateUI();
     }
 
+    private void setupCategoryTabs(View view) {
+        tabAll = view.findViewById(R.id.tab_cat_all);
+        tabGlass = view.findViewById(R.id.tab_cat_glass);
+        tabBottles = view.findViewById(R.id.tab_cat_bottles);
+        tabCups = view.findViewById(R.id.tab_cat_cups);
+        tabMugs = view.findViewById(R.id.tab_cat_mugs);
+        tabFantasy = view.findViewById(R.id.tab_cat_fantasy);
+        tabPremium = view.findViewById(R.id.tab_cat_premium);
+
+        tabAll.setOnClickListener(v -> selectCategory(ContainerSkin.CAT_ALL, tabAll));
+        tabGlass.setOnClickListener(v -> selectCategory(ContainerSkin.CAT_GLASS, tabGlass));
+        tabBottles.setOnClickListener(v -> selectCategory(ContainerSkin.CAT_BOTTLES, tabBottles));
+        tabCups.setOnClickListener(v -> selectCategory(ContainerSkin.CAT_CUPS, tabCups));
+        tabMugs.setOnClickListener(v -> selectCategory(ContainerSkin.CAT_MUGS, tabMugs));
+        tabFantasy.setOnClickListener(v -> selectCategory(ContainerSkin.CAT_FANTASY, tabFantasy));
+        tabPremium.setOnClickListener(v -> selectCategory(ContainerSkin.CAT_PREMIUM, tabPremium));
+    }
+
+    private void selectCategory(String category, TextView selectedTab) {
+        SoundManager.getInstance(requireContext()).playClick();
+        selectedCategory = category;
+
+        // Reset all tabs
+        TextView[] tabs = new TextView[]{tabAll, tabGlass, tabBottles, tabCups, tabMugs, tabFantasy, tabPremium};
+        for (TextView t : tabs) {
+            t.setBackgroundResource(R.drawable.bg_tab_unselected);
+            t.setTextColor(Color.parseColor("#FFFFFF"));
+        }
+
+        // Highlight selected
+        selectedTab.setBackgroundResource(R.drawable.bg_tab_selected);
+        selectedTab.setTextColor(Color.parseColor("#0A192F"));
+
+        List<ContainerSkin> filtered = skinManager.getSkinsByCategory(selectedCategory);
+        skinAdapter.updateList(filtered);
+    }
+
+    // ==================== CONTAINER SKIN ACTIONS ====================
+
+    @Override
+    public void onSkinSelected(ContainerSkin skin) {
+        SoundManager.getInstance(requireContext()).playClick();
+        SkinPreviewDialog dialog = new SkinPreviewDialog(requireContext(), skin, new SkinPreviewDialog.SkinPreviewListener() {
+            @Override
+            public void onSkinEquipped(ContainerSkin equipped) {
+                updateUI();
+            }
+
+            @Override
+            public void onSkinPurchased(ContainerSkin purchased) {
+                playerData = storage.loadPlayerData();
+                updateUI();
+            }
+        });
+        dialog.show();
+    }
+
+    @Override
+    public void onSkinBuy(ContainerSkin skin) {
+        if (skin.isFree() || playerData.spendCoins(skin.getPrice())) {
+            storage.savePlayerData(playerData);
+            skinManager.unlockSkin(skin.getId());
+            skinManager.setEquippedSkin(skin.getId());
+            SoundManager.getInstance(requireContext()).playCoin();
+            Toast.makeText(requireContext(), skin.getName() + " Unlocked & Equipped!", Toast.LENGTH_SHORT).show();
+            updateUI();
+        } else {
+            SoundManager.getInstance(requireContext()).playInvalid();
+            Toast.makeText(requireContext(), R.string.not_enough_coins, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onSkinEquip(ContainerSkin skin) {
+        SoundManager.getInstance(requireContext()).playClick();
+        skinManager.setEquippedSkin(skin.getId());
+        Toast.makeText(requireContext(), skin.getName() + " Equipped!", Toast.LENGTH_SHORT).show();
+        updateUI();
+    }
+
     private void simulatePurchase(int coins) {
         SoundManager.getInstance(requireContext()).playCoin();
         playerData.addCoins(coins);
@@ -119,8 +226,14 @@ public class ShopFragment extends Fragment {
     }
 
     private void updateUI() {
+        if (!isAdded()) return;
+        playerData = storage.loadPlayerData();
         tvCoinCount.setText(String.valueOf(playerData.getCoins()));
         tvUserUndos.setText("Have: " + playerData.getExtraUndosRemaining());
         tvUserHints.setText("Have: " + playerData.getHintsRemaining());
+
+        if (skinAdapter != null) {
+            skinAdapter.updateList(skinManager.getSkinsByCategory(selectedCategory));
+        }
     }
 }

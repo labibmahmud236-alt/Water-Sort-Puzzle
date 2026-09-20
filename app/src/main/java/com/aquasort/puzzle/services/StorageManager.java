@@ -173,4 +173,54 @@ public class StorageManager {
                 .remove(Constants.KEY_SAVED_STATE_DATA)
                 .apply();
     }
+
+    // ==================== CONTAINER SKINS ====================
+
+    public java.util.Set<String> getUnlockedSkins() {
+        java.util.Set<String> set = new java.util.HashSet<>();
+        set.add(Constants.DEFAULT_SKIN_ID); // Classic tube is always unlocked
+        String raw = prefs.getString(Constants.KEY_UNLOCKED_SKINS, "");
+        if (raw != null && !raw.isEmpty()) {
+            String[] parts = raw.split(",");
+            for (String s : parts) {
+                String trimmed = s.trim();
+                if (!trimmed.isEmpty()) {
+                    set.add(trimmed);
+                }
+            }
+        }
+        return set;
+    }
+
+    public boolean isSkinUnlocked(String skinId) {
+        if (Constants.DEFAULT_SKIN_ID.equals(skinId)) return true;
+        return getUnlockedSkins().contains(skinId);
+    }
+
+    public void unlockSkin(String skinId) {
+        if (skinId == null || skinId.isEmpty()) return;
+        java.util.Set<String> set = getUnlockedSkins();
+        set.add(skinId);
+        StringBuilder sb = new StringBuilder();
+        for (String id : set) {
+            if (sb.length() > 0) sb.append(",");
+            sb.append(id);
+        }
+        prefs.edit().putString(Constants.KEY_UNLOCKED_SKINS, sb.toString()).apply();
+    }
+
+    public String getEquippedSkinId() {
+        String equipped = prefs.getString(Constants.KEY_EQUIPPED_SKIN, Constants.DEFAULT_SKIN_ID);
+        if (equipped == null || equipped.isEmpty()) {
+            return Constants.DEFAULT_SKIN_ID;
+        }
+        return equipped;
+    }
+
+    public void setEquippedSkinId(String skinId) {
+        if (skinId == null || skinId.isEmpty()) {
+            skinId = Constants.DEFAULT_SKIN_ID;
+        }
+        prefs.edit().putString(Constants.KEY_EQUIPPED_SKIN, skinId).apply();
+    }
 }

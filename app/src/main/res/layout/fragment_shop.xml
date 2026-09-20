@@ -128,11 +128,157 @@
                     android:textSize="13sp" />
             </LinearLayout>
 
+            <!-- Section: Container Skins -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-black"
+                    android:letterSpacing="0.08"
+                    android:text="CONTAINER SKINS"
+                    android:textColor="@color/accent_gold"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="Tap any container to preview &amp; test pour animation"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp" />
+
+                <!-- Categories Tab Bar -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clipToPadding="false"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/layout_shop_categories"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tab_cat_all"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_tab_selected"
+                            android:gravity="center"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="ALL"
+                            android:textColor="@color/bg_gradient_start"
+                            android:fontFamily="sans-serif-black"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tab_cat_glass"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_tab_unselected"
+                            android:gravity="center"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="GLASS"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-bold"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tab_cat_bottles"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_tab_unselected"
+                            android:gravity="center"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="BOTTLES"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-bold"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tab_cat_cups"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_tab_unselected"
+                            android:gravity="center"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="CUPS"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-bold"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tab_cat_mugs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_tab_unselected"
+                            android:gravity="center"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="MUGS"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-bold"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tab_cat_fantasy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_tab_unselected"
+                            android:gravity="center"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="FANTASY"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-bold"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tab_cat_premium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="32dp"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_tab_unselected"
+                            android:gravity="center"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:text="PREMIUM"
+                            android:textColor="@color/text_primary"
+                            android:fontFamily="sans-serif-bold"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- Container Skins Grid -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_container_skins"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:nestedScrollingEnabled="false" />
+            </LinearLayout>
+
             <!-- Section: Boosters -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="22dp"
                 android:layout_marginBottom="8dp"
                 android:fontFamily="sans-serif-black"
                 android:letterSpacing="0.08"
